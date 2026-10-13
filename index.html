@@ -1,0 +1,251 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Achados do Doug — achados que valem o clique</title>
+<meta name="description" content="Os achados que o Doug testou e aprovou: beleza, moda masculina e casa, com link direto para comprar na Shopee.">
+<meta name="theme-color" content="#FF1493">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Achados do Doug">
+<meta property="og:description" content="Achados que valem o clique. O Doug aprova!">
+<meta property="og:image" content="/og.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/avatar.jpg">
+<link rel="apple-touch-icon" href="/avatar.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --pink:#FF1493; --pink-soft:#ffe3f2; --cyan:#00BFFF; --cyan-soft:#dff6ff;
+    --ink:#121212; --muted:#5d5d66; --bg:#fff8fc; --card:#ffffff; --line:#121212;
+    --radius:20px; --shadow:5px 5px 0 var(--line);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:Poppins,system-ui,-apple-system,sans-serif;background:var(--bg);color:var(--ink);min-height:100vh;
+    background-image:radial-gradient(circle at 1px 1px, rgba(255,20,147,.10) 1px, transparent 0);background-size:22px 22px}
+  a{color:inherit}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 16px}
+
+  /* topo */
+  .topbar{position:sticky;top:0;z-index:20;background:rgba(255,248,252,.92);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:3px solid var(--line)}
+  .topbar .wrap{display:flex;align-items:center;gap:12px;height:64px}
+  .brand{display:flex;align-items:center;gap:10px;text-decoration:none;font-weight:900;font-size:18px;letter-spacing:-.3px;white-space:nowrap}
+  .brand img{width:40px;height:40px;border-radius:50%;border:3px solid var(--line);object-fit:cover}
+  .brand b{color:var(--pink)}
+  .search{flex:1;max-width:420px;margin-left:auto;position:relative}
+  .search input{width:100%;height:42px;padding:0 14px 0 40px;border:3px solid var(--line);border-radius:999px;font:500 14px Poppins,sans-serif;background:#fff;outline:none;color:var(--ink)}
+  .search input:focus{box-shadow:3px 3px 0 var(--pink)}
+  .search svg{position:absolute;left:14px;top:50%;transform:translateY(-50%);width:16px;height:16px}
+
+  /* hero */
+  .hero{margin:22px 0 10px;border:3px solid var(--line);border-radius:26px;overflow:hidden;box-shadow:7px 7px 0 var(--line);background:linear-gradient(110deg,var(--pink),var(--cyan))}
+  .hero img{display:block;width:100%;aspect-ratio:1366/424;object-fit:cover}
+  .intro{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:14px;margin:22px 0 6px}
+  .intro h1{font-size:clamp(22px,3.2vw,32px);font-weight:900;letter-spacing:-.6px;line-height:1.15}
+  .intro h1 span{background:linear-gradient(transparent 62%, var(--cyan-soft) 0);padding:0 4px}
+  .intro p{color:var(--muted);font-size:15px;margin-top:6px;max-width:560px}
+  .pills{display:flex;gap:8px;flex-wrap:wrap}
+  .pill{display:inline-flex;align-items:center;gap:6px;border:3px solid var(--line);border-radius:999px;padding:7px 14px;font-weight:700;font-size:13px;background:#fff}
+  .pill.pink{background:var(--pink);color:#fff}
+  .pill.cyan{background:var(--cyan);color:#fff}
+
+  /* categorias */
+  .cats{position:sticky;top:64px;z-index:15;background:var(--bg);padding:12px 0 12px;margin-bottom:6px}
+  .chips{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+  .chips::-webkit-scrollbar{display:none}
+  .chip{flex:none;border:3px solid var(--line);background:#fff;border-radius:999px;padding:8px 16px;font:700 14px Poppins,sans-serif;cursor:pointer;color:var(--ink);transition:transform .12s, box-shadow .12s}
+  .chip:hover{transform:translateY(-2px);box-shadow:3px 3px 0 var(--line)}
+  .chip[aria-pressed=true]{background:var(--ink);color:#fff}
+  .chip .n{display:inline-block;margin-left:6px;font-size:11px;background:var(--pink);color:#fff;border-radius:999px;padding:1px 7px}
+  .count{color:var(--muted);font-size:13px;margin:4px 2px 14px}
+
+  /* grade */
+  .grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+  @media(min-width:720px){.grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}}
+  @media(min-width:1040px){.grid{grid-template-columns:repeat(4,minmax(0,1fr));gap:22px}}
+  .card{position:relative;background:var(--card);border:3px solid var(--line);border-radius:var(--radius);overflow:hidden;display:flex;flex-direction:column;text-decoration:none;box-shadow:var(--shadow);transition:transform .15s, box-shadow .15s}
+  .card:hover{transform:translate(-2px,-3px);box-shadow:8px 9px 0 var(--line)}
+  .card:active{transform:translate(2px,2px);box-shadow:2px 2px 0 var(--line)}
+  .card:focus-visible{outline:4px solid var(--cyan);outline-offset:3px}
+  .media{position:relative;aspect-ratio:1/1;background:linear-gradient(135deg,var(--pink-soft),var(--cyan-soft));border-bottom:3px solid var(--line);overflow:hidden}
+  .media img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .35s}
+  .card:hover .media img{transform:scale(1.05)}
+  .badge{position:absolute;top:10px;left:10px;font-size:11px;font-weight:800;padding:4px 10px;border-radius:999px;border:2px solid var(--line);background:var(--cyan);color:#fff;letter-spacing:.3px}
+  .body{padding:12px 12px 14px;display:flex;flex-direction:column;gap:6px;flex:1}
+  .tag{font-size:11px;font-weight:800;color:var(--pink);text-transform:uppercase;letter-spacing:.6px}
+  .name{font-size:15px;font-weight:800;line-height:1.25;color:var(--ink)}
+  .why{font-size:13px;color:var(--muted);line-height:1.4;flex:1}
+  .btn{margin-top:6px;display:flex;align-items:center;justify-content:center;gap:6px;background:var(--pink);color:#fff;font-weight:800;font-size:14px;height:42px;border-radius:12px;border:3px solid var(--line)}
+  .card:hover .btn{background:#e8007f}
+  .btn svg{width:16px;height:16px}
+  @media(max-width:420px){.name{font-size:14px}.why{font-size:12px}.btn{font-size:13px;height:40px}.body{padding:10px 10px 12px}}
+
+  .empty{text-align:center;color:var(--muted);padding:40px 0;display:none;font-weight:600}
+
+  /* rodapé */
+  footer{margin:48px 0 0;border-top:3px solid var(--line);background:#fff}
+  footer .wrap{display:grid;gap:18px;padding:28px 16px calc(28px + env(safe-area-inset-bottom));grid-template-columns:1fr}
+  @media(min-width:720px){footer .wrap{grid-template-columns:1.4fr 1fr;align-items:center}}
+  footer p{color:var(--muted);font-size:13px;line-height:1.55}
+  .social{display:flex;gap:10px;flex-wrap:wrap}
+  @media(min-width:720px){.social{justify-content:flex-end}}
+  .social a{display:inline-flex;align-items:center;gap:6px;border:3px solid var(--line);border-radius:999px;padding:8px 14px;text-decoration:none;background:#fff;font-weight:700;font-size:13px;transition:transform .12s, box-shadow .12s}
+  .social a:hover{transform:translateY(-2px);box-shadow:3px 3px 0 var(--line)}
+  .social a.ig:hover{background:var(--pink);color:#fff}
+  .social a.yt:hover{background:var(--ink);color:#fff}
+  .social a.pin:hover{background:var(--cyan);color:#fff}
+
+  @media(max-width:560px){
+    .brand span.txt{display:none}
+    .hero{border-radius:18px;box-shadow:5px 5px 0 var(--line);margin-top:16px}
+    .intro{margin-top:16px}
+  }
+  @media (prefers-reduced-motion: reduce){*{transition:none!important;scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="wrap">
+    <a class="brand" href="#" aria-label="Achados do Doug">
+      <img src="/avatar.jpg" alt="">
+      <span class="txt">Achados do <b>Doug</b></span>
+    </a>
+    <label class="search">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+      <input id="q" type="search" placeholder="Procurar achado..." aria-label="Procurar achado" autocomplete="off">
+    </label>
+  </div>
+</div>
+
+<main class="wrap">
+  <div class="hero"><img src="/hero.jpg" alt="Achados do Doug — achados que valem o clique" fetchpriority="high"></div>
+
+  <div class="intro">
+    <div>
+      <h1>Testei, aprovei e <span>separei pra você</span></h1>
+      <p>Beleza, moda masculina e casa com preço bom. Toque no achado e compre direto na Shopee.</p>
+    </div>
+    <div class="pills">
+      <span class="pill pink">✓ O Doug aprova</span>
+      <span class="pill cyan" id="total"></span>
+    </div>
+  </div>
+
+  <div class="cats"><div class="chips" id="chips" role="toolbar" aria-label="Categorias"></div></div>
+  <p class="count" id="count" aria-live="polite"></p>
+  <div class="grid" id="grid"></div>
+  <p class="empty" id="empty">Nenhum achado com esse nome ainda. Tenta outra palavra!</p>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p><b>Achados do Doug</b> · Os links levam para a Shopee e são links de afiliado: você paga o mesmo preço e ajuda o canal a continuar testando. Preço e estoque podem mudar a qualquer momento.</p>
+    <div class="social">
+      <a class="ig" href="https://www.instagram.com/achadosdodougbr/" target="_blank" rel="noopener">Instagram</a>
+      <a class="yt" href="https://www.youtube.com/@achadosdodougbr" target="_blank" rel="noopener">YouTube</a>
+      <a class="pin" href="https://br.pinterest.com/achadosdodougbr/" target="_blank" rel="noopener">Pinterest</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* ============================================================
+   ACHADOS — para adicionar um novo, copie um bloco e cole no
+   topo da lista. O mais novo aparece primeiro.
+   categoria: "Beleza" | "Moda masculina" | "Casa" | "Pet" | "Tech"
+   ============================================================ */
+const PRODUTOS = [
+  {
+    nome: "Óleo Extraordinário Elseve 100ml",
+    categoria: "Beleza",
+    porque: "2 gotinhas controlam o frizz e dão brilho sem pesar.",
+    img: "https://down-bs-br.img.susercontent.com/br-11134207-820lt-msof4dg2rnyc07.webp",
+    link: "https://s.shopee.com.br/7AeHiLFBxe",
+    data: "2026-10-18"
+  },
+  {
+    nome: "Kit 2 bermudas tactel com bolso de zíper",
+    categoria: "Moda masculina",
+    porque: "Leve, seca rápido e serve pra treino, praia e dia a dia.",
+    img: "https://down-bs-br.img.susercontent.com/br-11134207-820lp-mo5kvty6xkhw4e.webp",
+    link: "https://s.shopee.com.br/8fT5VBpSWA",
+    data: "2026-10-17"
+  },
+  {
+    nome: "Kit 3 polos caneladas com zíper",
+    categoria: "Moda masculina",
+    porque: "Arrumadinho pro trabalho sem esforço. Chega de camiseta!",
+    img: "https://down-bs-br.img.susercontent.com/br-11134207-81ztc-mjo8258t87b5d4.webp",
+    link: "https://s.shopee.com.br/8pmVhR82WC",
+    data: "2026-10-15"
+  },
+  {
+    nome: "Garnier Hialurônico Toque Seco 85g",
+    categoria: "Beleza",
+    porque: "Secou em 5 segundos e não deixa a pele grudando.",
+    img: "https://down-bs-br.img.susercontent.com/br-11134207-820lr-mok6uh6vpfybb1.webp",
+    link: "https://s.shopee.com.br/7VH7vFpw6y",
+    data: "2026-10-12"
+  }
+];
+
+const $ = id => document.getElementById(id);
+const grid = $('grid'), chips = $('chips'), q = $('q'), empty = $('empty'), count = $('count');
+const params = new URLSearchParams(location.search);
+let cat = params.get('cat') || 'Todos';
+const hoje = new Date();
+const esc = s => String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const norm = s => s.normalize('NFD').replace(/[̀-ͯ]/g,'').toLowerCase();
+const isNew = d => { const diff = (hoje - new Date(d + 'T12:00:00')) / 864e5; return diff >= -30 && diff <= 4; };
+
+$('total').textContent = `${PRODUTOS.length} achados`;
+
+const cats = ['Todos', ...new Set(PRODUTOS.map(p => p.categoria))];
+if (!cats.includes(cat)) cat = 'Todos';
+cats.forEach(c => {
+  const b = document.createElement('button');
+  const n = c === 'Todos' ? PRODUTOS.length : PRODUTOS.filter(p => p.categoria === c).length;
+  b.className = 'chip'; b.type = 'button'; b.dataset.cat = c;
+  b.innerHTML = `${esc(c)}<span class="n">${n}</span>`;
+  b.setAttribute('aria-pressed', c === cat);
+  b.onclick = () => {
+    cat = c;
+    [...chips.children].forEach(x => x.setAttribute('aria-pressed', x.dataset.cat === c));
+    const u = new URL(location); c === 'Todos' ? u.searchParams.delete('cat') : u.searchParams.set('cat', c); history.replaceState(null, '', u);
+    render();
+  };
+  chips.appendChild(b);
+});
+
+const arrow = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>';
+
+function render(){
+  const term = norm(q.value.trim());
+  const list = PRODUTOS
+    .filter(p => cat === 'Todos' || p.categoria === cat)
+    .filter(p => !term || norm(`${p.nome} ${p.categoria} ${p.porque}`).includes(term));
+  grid.innerHTML = list.map(p => `
+    <a class="card" href="${esc(p.link)}" target="_blank" rel="noopener sponsored" aria-label="${esc(p.nome)} — ver na Shopee">
+      <div class="media">
+        <img src="${esc(p.img)}" alt="${esc(p.nome)}" loading="lazy" decoding="async" referrerpolicy="no-referrer" onerror="this.style.opacity=0">
+        ${isNew(p.data) ? '<span class="badge">NOVO</span>' : ''}
+      </div>
+      <div class="body">
+        <span class="tag">${esc(p.categoria)}</span>
+        <span class="name">${esc(p.nome)}</span>
+        <span class="why">${esc(p.porque)}</span>
+        <span class="btn">Ver na Shopee ${arrow}</span>
+      </div>
+    </a>`).join('');
+  empty.style.display = list.length ? 'none' : 'block';
+  count.textContent = list.length ? `${list.length} ${list.length === 1 ? 'achado' : 'achados'}${cat !== 'Todos' ? ' em ' + cat : ''}` : '';
+}
+q.addEventListener('input', render);
+render();
+</script>
+</body>
+</html>
