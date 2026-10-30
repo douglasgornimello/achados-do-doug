@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Achados do Doug — achados que valem o clique</title>
-<meta name="description" content="Os achados que o Doug testou e aprovou: beleza, moda masculina e casa, com link direto para comprar na Shopee.">
+<meta name="description" content="Os achados que o Doug testou e aprovou: beleza, moda masculina e casa, com link direto para comprar na Shopee, no TikTok Shop ou no Mercado Livre.">
 <meta name="theme-color" content="#FF1493">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Achados do Doug">
@@ -127,7 +127,7 @@
   <div class="intro">
     <div>
       <h1>Testei, aprovei e <span>separei pra você</span></h1>
-      <p>Beleza, moda masculina e casa com preço bom. Toque no achado e compre direto na Shopee.</p>
+      <p>Beleza, moda masculina e casa com preço bom. Toque no achado e compre direto na loja.</p>
     </div>
     <div class="pills">
       <span class="pill pink">✓ O Doug aprova</span>
@@ -143,7 +143,7 @@
 
 <footer>
   <div class="wrap">
-    <p><b>Achados do Doug</b> · Os links levam para a Shopee e são links de afiliado: você paga o mesmo preço e ajuda o canal a continuar testando. Preço e estoque podem mudar a qualquer momento.</p>
+    <p><b>Achados do Doug</b> · Os links levam para a Shopee, o TikTok Shop ou o Mercado Livre e podem ser links de afiliado: você paga o mesmo preço e ajuda o canal a continuar testando. Preço e estoque podem mudar a qualquer momento.</p>
     <div class="social">
       <a class="ig" href="https://www.instagram.com/achadosdodougbr/" target="_blank" rel="noopener">Instagram</a>
       <a class="yt" href="https://www.youtube.com/@achadosdodougbr" target="_blank" rel="noopener">YouTube</a>
@@ -159,6 +159,15 @@
    categoria: "Beleza" | "Moda masculina" | "Casa" | "Pet" | "Tech"
    ============================================================ */
 const PRODUTOS = [
+  {
+    nome: "L'Oréal Solar Expertise Cloud Skin FPS 50 (bastão)",
+    categoria: "Beleza",
+    porque: "Protetor solar em bastão, acabamento invisível e sem esbranquiçar. Fácil de reaplicar até por cima da make.",
+    img: "https://p16-oec-sg.ibyteimg.com/tos-alisg-i-aphluv4xwc-sg/e415bb6b4873421d902c922a03311168~tplv-aphluv4xwc-resize-webp:800:800.webp",
+    link: "https://shop.tiktok.com/br/pdp/1737897769653404989",
+    loja: "TikTok Shop",
+    data: "2026-10-30"
+  },
   {
     nome: "Sérum Elseve Liso dos Sonhos 100ml",
     categoria: "Beleza",
@@ -301,7 +310,7 @@ function render(){
     .filter(p => cat === 'Todos' || p.categoria === cat)
     .filter(p => !term || norm(`${p.nome} ${p.categoria} ${p.porque}`).includes(term));
   grid.innerHTML = list.map(p => `
-    <a class="card" href="${esc(p.link)}" target="_blank" rel="noopener sponsored" aria-label="${esc(p.nome)} — ver na Shopee">
+    <a class="card" href="${esc(p.link)}" target="_blank" rel="noopener sponsored" aria-label="${esc(p.nome)} — ver na ${esc(p.loja||'Shopee')}">
       <div class="media">
         <img src="${esc(p.img)}" alt="${esc(p.nome)}" loading="lazy" decoding="async" referrerpolicy="no-referrer" onerror="this.style.opacity=0">
         ${isNew(p.data) ? '<span class="badge">NOVO</span>' : ''}
@@ -310,7 +319,7 @@ function render(){
         <span class="tag">${esc(p.categoria)}</span>
         <span class="name">${esc(p.nome)}</span>
         <span class="why">${esc(p.porque)}</span>
-        <span class="btn">Ver na Shopee ${arrow}</span>
+        <span class="btn">Ver na ${esc(p.loja||'Shopee')} ${arrow}</span>
       </div>
     </a>`).join('');
   empty.style.display = list.length ? 'none' : 'block';
